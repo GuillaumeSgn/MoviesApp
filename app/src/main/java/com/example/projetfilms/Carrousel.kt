@@ -1,5 +1,7 @@
 package com.example.projetfilms
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,7 +15,7 @@ import com.example.projetfilms.fakedata.getAllMovies
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 
 @Composable
-fun ListMovies(movies: List<Movies> = getAllMovies()) {
+fun ListMovies(movies: List<Movies> = getAllMovies(),toDetails: () -> Unit) {
     LazyColumn(
         modifier = Modifier
             .padding(vertical = 24.dp, horizontal = 17.dp),
