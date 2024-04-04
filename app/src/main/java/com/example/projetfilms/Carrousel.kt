@@ -15,7 +15,7 @@ import com.example.projetfilms.fakedata.getAllMovies
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 
 @Composable
-fun ListMovies(movies: List<Movies> = getAllMovies(),toDetails: () -> Unit) {
+fun ListMovies(movies: List<Movies> = getAllMovies(),toDetails: (Int) -> Unit) {
     LazyColumn(
         modifier = Modifier
             .padding(vertical = 24.dp, horizontal = 17.dp),
