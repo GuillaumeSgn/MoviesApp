@@ -19,8 +19,14 @@ fun ListMovies(movies: List<Movies> = getAllMovies()) {
             .padding(vertical = 24.dp, horizontal = 17.dp),
         verticalArrangement = Arrangement.spacedBy(40.dp)
     ) {
-        items(items = movies) { item ->
-            LineOfCarrousel(movies = listOf(item, item, item))
+        item {
+            LineOfCarrousel(movies = movies)
+        }
+        item {
+            LineOfCarrousel(movies = movies)
+        }
+        item {
+            LineOfCarrousel(movies = movies)
         }
     }
 }
