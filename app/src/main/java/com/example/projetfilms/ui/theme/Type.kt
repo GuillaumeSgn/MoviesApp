@@ -1,7 +1,6 @@
 package com.example.projetfilms.ui.theme
 
 import androidx.compose.material3.Typography
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -32,19 +31,16 @@ val Typography = Typography(
         fontFamily = roboto,
         fontWeight = FontWeight(500),
         fontSize = 14.sp,
-        color = Color(0xFFEAEAEA)
     ),
     labelSmall = TextStyle(
         fontFamily = roboto,
         fontSize = 12.sp,
         fontWeight = FontWeight(400),
-        color = Color(0xFFEFEFEF)
     ),
     titleMedium = TextStyle(
         fontFamily = roboto,
         fontSize = 28.sp,
         fontWeight = FontWeight(300),
-        color = Color(0xFFEAEAEA)
     )
 
     // Other default text styles to override

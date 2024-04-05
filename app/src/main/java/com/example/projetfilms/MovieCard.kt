@@ -1,7 +1,6 @@
 package com.example.projetfilms
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,6 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.projetfilms.fakedata.Movies
+import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 
 @Composable
 fun MovieCard(movie: Movies, modifier: Modifier = Modifier) {
@@ -56,5 +56,8 @@ fun MovieCard(movie: Movies, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun PreviewCard() {
-    MovieCard(Movies("title of the first movie", "synopsis ...", 87, "enfants"))
+    ProjetFilmsTheme {
+        MovieCard(Movies("title of the first movie", "synopsis ...", 87, "enfants"))
+
+    }
 }
