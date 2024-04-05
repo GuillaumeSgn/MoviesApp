@@ -3,12 +3,14 @@ package com.example.projetfilms.fakedata
 data class Movies(
     val title: String,
     val synopsis: String,
-    val rating: Int
+    val rating: Int,
+    val genre: String
 ) {
     companion object {
         fun fakeMovies() = listOf(
-            Movies("title of the first movie", "synopsis ...", 87),
-            Movies("title of the second movie", "synopsis ...", 65)
+            Movies("title of the first movie", "synopsis ...", 87,"enfants"),
+            Movies("title of the second movie", "synopsis ...", 65,"enfants"),
+            Movies("titre du film 3","synopsis ...",70,"action")
         )
     }
 }
