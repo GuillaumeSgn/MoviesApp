@@ -21,12 +21,16 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CustomCard(image: Painter, title: String, subtitle: String, func: ()-> Unit, modifier: Modifier){
+fun CustomCard(
+    image: Painter,
+    title: String,
+    subtitle: String,
+    modifier: Modifier,
+    isMovie: Boolean
+) {
     Column(
         verticalArrangement = Arrangement.spacedBy(4.dp),
         modifier = modifier
-            .width(150.dp)
-            .clickable(onClick =  func)
     ) {
         Image(
             painter = image,
@@ -44,11 +48,13 @@ fun CustomCard(image: Painter, title: String, subtitle: String, func: ()-> Unit,
                 horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterHorizontally),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Icon(
-                    imageVector = Icons.Filled.Favorite,
-                    contentDescription = null,
-                    tint = Color.Red
-                )
+                if (isMovie) {
+                    Icon(
+                        imageVector = Icons.Filled.Favorite,
+                        contentDescription = null,
+                        tint = Color.Red
+                    )
+                }
                 Text(text = subtitle, style = MaterialTheme.typography.labelSmall)
             }
         }

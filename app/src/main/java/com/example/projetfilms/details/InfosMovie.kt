@@ -12,7 +12,7 @@ fun InfosMovie(movie:Movies){
         style = MaterialTheme.typography.titleMedium,
     )
     Text(
-        text = movie.genre,
+        text = movie.date+". "+movie.genre+". "+movie.duree,
         style = MaterialTheme.typography.labelLarge,
     )
 }

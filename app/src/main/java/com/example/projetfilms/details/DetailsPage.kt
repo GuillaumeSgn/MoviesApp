@@ -35,7 +35,6 @@ fun DetailsPage(backTo: () -> Unit, id: Int?) {
             horizontalAlignment = Alignment.Start,
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
-                .absolutePadding(left = 24.dp)
         ) {
             IconButton(onClick = backTo) {
                 Icon(imageVector = Icons.Outlined.ArrowBack, "Back")
@@ -49,12 +48,14 @@ fun DetailsPage(backTo: () -> Unit, id: Int?) {
                     .fillMaxWidth(0.6f)
                     .aspectRatio(ratio = 2 / 3f),
             )
-            Spacer(Modifier.size(24.dp))
-            InfosMovie(movie = movie)
-            Spacer(Modifier.size(24.dp))
-            Buttons()
-            Spacer(Modifier.size(24.dp))
-            Overview(movie = movie)
+            Column(modifier = Modifier.absolutePadding(left = 24.dp)) {
+                Spacer(Modifier.size(24.dp))
+                InfosMovie(movie = movie)
+                Spacer(Modifier.size(24.dp))
+                Buttons()
+                Spacer(Modifier.size(24.dp))
+                Overview(movie = movie)
+            }
             Spacer(Modifier.size(24.dp))
             ActorsCarrousel(movie.actors)
             Spacer(Modifier.size(24.dp))
