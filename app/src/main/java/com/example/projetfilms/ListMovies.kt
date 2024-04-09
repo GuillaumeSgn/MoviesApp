@@ -23,10 +23,10 @@ fun ListMovies(movies: List<Movies> = getAllMovies(), toDetails: (Int) -> Unit) 
             LineOfMovies(movies = movies, func = toDetails, title = "Type de film")
         }
         item {
-            LineOfMovies(movies = movies,  func = toDetails, title = "Type de film")
+            LineOfMovies(movies = movies, func = toDetails, title = "Type de film")
         }
         item {
-            LineOfMovies(movies = movies,  func = toDetails, title = "Type de film")
+            LineOfMovies(movies = movies, func = toDetails, title = "Type de film")
         }
     }
 }

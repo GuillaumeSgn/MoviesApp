@@ -29,7 +29,7 @@ import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 @Composable
 fun DetailsPage(backTo: () -> Unit, id: Int?) {
     val movie: Movies? = id?.let { getMovieById(it) }
-    if (movie != null) {
+    movie?.let {
         Column(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,

@@ -13,11 +13,22 @@ import com.example.projetfilms.details.DetailsPage
 fun Nav() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "menu") {
-        composable("menu") { ListMovies(toDetails = {
-            navController.navigate("details/$it")
-        }) }
-        composable("details/{id}",
-            arguments = listOf(navArgument("id"){type = NavType.IntType})
-        ) {backStackEntry -> DetailsPage(backTo = {navController.navigate("menu"){ popUpTo("details"){inclusive = true} } },backStackEntry.arguments?.getInt("id")) }
+        composable("menu") {
+            ListMovies(toDetails = { id ->
+                navController.navigate("details/$id")
+            })
+        }
+        composable(
+            "details/{id}",
+            arguments = listOf(navArgument("id") { type = NavType.IntType })
+        ) { backStackEntry ->
+            DetailsPage(backTo = {
+                navController.navigate("menu") {
+                    popUpTo("details") {
+                        inclusive = true
+                    }
+                }
+            }, backStackEntry.arguments?.getInt("id"))
+        }
     }
 }

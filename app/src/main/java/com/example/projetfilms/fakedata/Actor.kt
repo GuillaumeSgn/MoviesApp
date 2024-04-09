@@ -17,3 +17,4 @@ data class Actor(
 }
 
 fun getActors() = Actor.fakeActor()
+fun getActor(id: Int) = Actor.fakeActor()[id]

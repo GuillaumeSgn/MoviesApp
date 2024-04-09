@@ -10,14 +10,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.projetfilms.carrouselCard.ActorCard
 import com.example.projetfilms.fakedata.Actor
+import com.example.projetfilms.fakedata.getActors
+import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 
 @Composable
 fun LineOfActor(
     actors: List<Actor>,
-    title:String
+    title: String
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.Top),
@@ -32,5 +35,14 @@ fun LineOfActor(
                 ActorCard(actor = it)
             }
         }
+    }
+}
+
+
+@Preview
+@Composable
+fun PreviewLineOfActors() {
+    ProjetFilmsTheme {
+        LineOfActor(actors = getActors(), title = "nom")
     }
 }
