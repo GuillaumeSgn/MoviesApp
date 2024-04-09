@@ -5,13 +5,14 @@ data class Movies(
     val title: String,
     val synopsis: String,
     val rating: Int,
-    val genre: String
+    val genre: String,
+    val actors: List<Actor>
 ) {
     companion object {
         fun fakeMovies() = listOf(
-            Movies(0,"title of the first movie", "synopsis ...", 87,"enfants"),
-            Movies(1,"title of the second movie", "synopsis ...", 65,"enfants"),
-            Movies(2,"titre du film 3","synopsis ...",70,"action")
+            Movies(0,"title of the first movie", "synopsis ...", 87,"enfants", getActors()),
+            Movies(1,"title of the second movie", "synopsis ...", 65,"enfants", getActors()),
+            Movies(2,"titre du film 3","synopsis ...",70,"action", getActors())
         )
     }
 }

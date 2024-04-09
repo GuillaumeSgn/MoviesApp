@@ -39,24 +39,35 @@ val Typography = Typography(
     ),
     titleMedium = TextStyle(
         fontFamily = roboto,
-        fontSize = 28.sp,
+        fontSize = 26.sp,
         fontWeight = FontWeight(300),
-    )
+    ),
 
     // Other default text styles to override
-//    titleLarge = TextStyle(
-//        fontFamily = FontFamily.Default,
-//        fontWeight = FontWeight.Normal,
-//        fontSize = 22.sp,
-//        lineHeight = 28.sp,
-//        letterSpacing = 0.sp
-//    ),
-//    labelSmall = TextStyle(
-//        fontFamily = FontFamily.Default,
-//        fontWeight = FontWeight.Medium,
-//        fontSize = 11.sp,
-//        lineHeight = 16.sp,
-//        letterSpacing = 0.5.sp
-//    )
-
+    titleLarge = TextStyle(
+        fontFamily = roboto,
+        fontWeight = FontWeight(500),
+        fontSize = 28.sp,
+    ),
+    labelMedium = TextStyle(
+        fontSize = 14.sp,
+        fontFamily = roboto,
+        fontWeight = FontWeight(400),
+    ),
+    headlineMedium = TextStyle(
+        fontSize = 18.sp,
+        fontFamily = roboto,
+        fontWeight = FontWeight(500),
+    ),
+    bodySmall = TextStyle(
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        fontFamily = roboto,
+        fontWeight = FontWeight(400),
+    ),
+    labelLarge = TextStyle(
+        fontSize = 16.sp,
+        fontFamily = roboto,
+        fontWeight = FontWeight(400)
+    )
 )
