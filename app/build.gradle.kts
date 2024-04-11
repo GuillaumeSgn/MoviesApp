@@ -62,9 +62,10 @@ dependencies {
     implementation(libs.androidx.ui.googlefonts)
     implementation(libs.androidx.material.icons)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.retrofit)
     implementation(libs.okhttp)
-    implementation(libs.converter.scalar)
+    implementation(libs.converter.moshi)
+    implementation(libs.androidx.lifecycle)
+    implementation(libs.moshi)
 
     testImplementation(libs.junit)
 

@@ -1,12 +1,19 @@
 package com.example.projetfilms.fakedata
 
+import com.squareup.moshi.Json
+
 data class Movies(
+    @Json(name = "id")
     val movieId: Int,
+    @Json(name = "title")
     val title: String,
+    @Json(name = "overview")
     val synopsis: String,
+    @Json(name = "vote_average")
     val rating: Int,
     val genre: String,
     val actors: List<Actor>,
+    @Json(name = "release_date")
     val date: String,
     val duree: String
 ) {
