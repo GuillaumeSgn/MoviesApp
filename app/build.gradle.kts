@@ -62,7 +62,13 @@ dependencies {
     implementation(libs.androidx.ui.googlefonts)
     implementation(libs.androidx.material.icons)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.converter.scalar)
+    implementation(libs.androidx.lifecycle)
+
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
