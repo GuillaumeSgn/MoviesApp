@@ -65,7 +65,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.converter.scalar)
-    implementation(libs.androidx.lifecycle)
 
     testImplementation(libs.junit)
 

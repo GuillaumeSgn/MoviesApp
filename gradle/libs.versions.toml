@@ -9,10 +9,8 @@ lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.8.2"
 composeBom = "2023.08.00"
 navigationCompose = "2.7.7"
-okhttpVer = "4.12.0"
-retrofitVer = "2.11.0"
-scalar = "2.9.0"
-viewmodelVer = "2.4.0"
+okhttp = "4.12.0"
+retrofit = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,10 +30,9 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-ui-googlefonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-material-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVer" }
-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttpVer" }
-converter-scalar = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "scalar" }
-androidx-lifecycle = { group = "androidx.lifecycle", name = "viewmodel", version.ref = "viewmodelVer" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+converter-scalar = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "retrofit" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
