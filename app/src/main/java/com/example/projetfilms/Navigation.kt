@@ -7,6 +7,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.projetfilms.details.DetailsPage
+import com.example.projetfilms.viewModel.DetailsViewModel
+import com.example.projetfilms.viewModel.ListViewModel
 
 
 @Composable
@@ -16,19 +18,24 @@ fun Nav() {
         composable("menu") {
             ListMovies(toDetails = { id ->
                 navController.navigate("details/$id")
-            })
+            }, viewModel = ListViewModel())
         }
         composable(
             "details/{id}",
             arguments = listOf(navArgument("id") { type = NavType.IntType })
         ) { backStackEntry ->
-            DetailsPage(backTo = {
-                navController.navigate("menu") {
-                    popUpTo("details") {
-                        inclusive = true
-                    }
-                }
-            }, backStackEntry.arguments?.getInt("id"))
+            backStackEntry.arguments?.getInt("id")?.let {
+                DetailsPage(
+                    backTo = {
+                        navController.navigate("menu") {
+                            popUpTo("details") {
+                                inclusive = true
+                            }
+                        }
+                    }, id = it,
+                    viewModel = DetailsViewModel()
+                )
+            }
         }
     }
 }
