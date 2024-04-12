@@ -1,28 +1,122 @@
 package com.example.projetfilms.viewModel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.projetfilms.fakedata.Movies
 import com.example.projetfilms.network.FilmApi
+import com.example.projetfilms.network.Genre
+import com.example.projetfilms.network.MovieDetails
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class VuModel : ViewModel() {
-    private val _status = MutableLiveData<String>()
-    val status: LiveData<String> = _status
+
+    private val _popular = MutableStateFlow<List<Movies>>(emptyList())
+    val popular: StateFlow<List<Movies>> = _popular.asStateFlow()
+
+    private val _playing = MutableStateFlow<List<Movies>>(emptyList())
+    val playing: StateFlow<List<Movies>> = _playing.asStateFlow()
+
+    private val _rating = MutableStateFlow<List<Movies>>(emptyList())
+    val rating: StateFlow<List<Movies>> = _rating.asStateFlow()
+
+    private val _upcoming = MutableStateFlow<List<Movies>>(emptyList())
+    val upcoming: StateFlow<List<Movies>> = _upcoming.asStateFlow()
+
+    private val _genres = MutableStateFlow<List<Genre>>(emptyList())
+    val genres: StateFlow<List<Genre>> = _genres.asStateFlow()
+
+    private val _movieDetails = MutableStateFlow<MovieDetails?>(null)
+    val movieDetails: StateFlow<MovieDetails?> = _movieDetails.asStateFlow()
+
+
 
     init {
         getListMoviePopular()
+        getListMoviePlaying()
+        getListMovieRating()
+        getListMovieUpcoming()
+        getAllGenres()
     }
 
     private fun getListMoviePopular() {
         viewModelScope.launch {
             try {
                 val listM = FilmApi.retrofitService.getListPopular()
-                _status.value = "Success: ${listM.size} movies retrieved"
+                _popular.value = listM.results
             } catch (e: Exception) {
-                _status.value = "Failure: ${e.message}"
+                Log.e("viewmodel", e.stackTraceToString())
+
+                _popular.value = emptyList()
             }
         }
     }
+
+    private fun getListMoviePlaying() {
+        viewModelScope.launch {
+            try {
+                val listM = FilmApi.retrofitService.getListNowPlaying()
+                _playing.value = listM.results
+            } catch (e: Exception) {
+                Log.e("viewmodel", e.stackTraceToString())
+
+                _playing.value = emptyList()
+            }
+        }
+    }
+
+    private fun getListMovieRating() {
+        viewModelScope.launch {
+            try {
+                val listM = FilmApi.retrofitService.getListTopRated()
+                _rating.value = listM.results
+            } catch (e: Exception) {
+                Log.e("viewmodel", e.stackTraceToString())
+                _rating.value = emptyList()
+            }
+        }
+    }
+
+    private fun getListMovieUpcoming() {
+        viewModelScope.launch {
+            try {
+                val listM = FilmApi.retrofitService.getListUpcoming()
+                _upcoming.value = listM.results
+            } catch (e: Exception) {
+                Log.e("viewmodelMovies", e.stackTraceToString())
+                _upcoming.value = emptyList()
+            }
+        }
+    }
+
+    private fun getAllGenres() {
+        viewModelScope.launch {
+            try {
+                val listGenre = FilmApi.retrofitService.getAllGenres()
+                _genres.value = listGenre.genres
+                Log.v("viewmodelGenres", listGenre.toString())
+            } catch (e: Exception) {
+                Log.e("viewmodelGenres", e.stackTraceToString())
+                _genres.value = emptyList()
+
+            }
+        }
+    }
+
+     fun getMovieById(movieId:Int){
+        viewModelScope.launch {
+            try {
+                val theMovie = FilmApi.retrofitService.findMovieById(movieId = movieId)
+                _movieDetails.value = theMovie
+            } catch (e: Exception) {
+                Log.e("MovieId", e.stackTraceToString())
+                _movieDetails.value = null
+            }
+        }
+
+    }
+
 }
