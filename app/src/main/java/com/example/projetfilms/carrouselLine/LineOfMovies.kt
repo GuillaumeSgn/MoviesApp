@@ -12,14 +12,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.projetfilms.carrouselCard.MovieCard
 import com.example.projetfilms.fakedata.Movies
-import com.example.projetfilms.fakedata.getAllMovies
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
+import com.example.projetfilms.viewModel.ListViewModel
 
 @Composable
 fun LineOfMovies(
     movies: List<Movies>,
     func: (Int) -> Unit,
-    title: String
+    title: String,
+    viewModel: ListViewModel?
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.Top),
@@ -30,7 +31,7 @@ fun LineOfMovies(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(items = movies) {
-                MovieCard(movie = it, toDetails = func)
+                MovieCard(movie = it, toDetails = func, viewModel = viewModel)
             }
         }
     }
@@ -41,6 +42,6 @@ fun LineOfMovies(
 @Composable
 fun PreviewLineOfMovies() {
     ProjetFilmsTheme {
-        LineOfMovies(movies = getAllMovies(), func = {}, title = "titre")
+        LineOfMovies(movies = emptyList(), func = {}, title = "titre",null)
     }
 }

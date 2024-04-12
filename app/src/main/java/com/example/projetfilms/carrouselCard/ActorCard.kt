@@ -18,7 +18,7 @@ fun ActorCard(actor: Actor, modifier: Modifier = Modifier) {
         title = actor.name,
         subtitle = actor.role,
         modifier = modifier.width(150.dp),
-        isMovie = false
+        isMovie = false,
     )
 }
 
