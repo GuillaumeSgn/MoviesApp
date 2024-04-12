@@ -66,6 +66,8 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.androidx.lifecycle)
     implementation(libs.moshi)
+    implementation(libs.logging)
+    implementation(libs.coil)
 
     testImplementation(libs.junit)
 

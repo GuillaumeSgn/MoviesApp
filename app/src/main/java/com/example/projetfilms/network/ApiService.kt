@@ -1,20 +1,25 @@
 package com.example.projetfilms.network
 
-import com.example.projetfilms.fakedata.Movies
 import retrofit2.http.GET
-
+import retrofit2.http.Path
 
 interface ApiService {
     @GET("3/movie/popular")
-    suspend fun getListPopular(): List<Movies>
+    suspend fun getListPopular(): Result
 
     @GET("3/movie/now_playing")
-    suspend fun getListNowPlaying(): List<Movies>
+    suspend fun getListNowPlaying(): Result
 
     @GET("3/movie/top_rated")
-    suspend fun getListTopRated(): List<Movies>
+    suspend fun getListTopRated(): Result
 
     @GET("3/movie/upcoming")
-    suspend fun getListUpcoming(): List<Movies>
+    suspend fun getListUpcoming(): Result
+
+    @GET("3/genre/movie/list")
+    suspend fun getAllGenres(): MovieGenre
+
+    @GET("3/movie/{movie_id}")
+    suspend fun findMovieById(@Path("movie_id") movieId:Int): MovieDetails
 }
 
