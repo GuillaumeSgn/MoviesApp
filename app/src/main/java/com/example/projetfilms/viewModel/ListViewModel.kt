@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class VuModel : ViewModel() {
+class ListViewModel : ViewModel() {
 
     private val _popular = MutableStateFlow<List<Movies>>(emptyList())
     val popular: StateFlow<List<Movies>> = _popular.asStateFlow()
@@ -28,11 +28,6 @@ class VuModel : ViewModel() {
 
     private val _genres = MutableStateFlow<List<Genre>>(emptyList())
     val genres: StateFlow<List<Genre>> = _genres.asStateFlow()
-
-    private val _movieDetails = MutableStateFlow<MovieDetails?>(null)
-    val movieDetails: StateFlow<MovieDetails?> = _movieDetails.asStateFlow()
-
-
 
     init {
         getListMoviePopular()
@@ -106,17 +101,6 @@ class VuModel : ViewModel() {
         }
     }
 
-     fun getMovieById(movieId:Int){
-        viewModelScope.launch {
-            try {
-                val theMovie = FilmApi.retrofitService.findMovieById(movieId = movieId)
-                _movieDetails.value = theMovie
-            } catch (e: Exception) {
-                Log.e("MovieId", e.stackTraceToString())
-                _movieDetails.value = null
-            }
-        }
 
-    }
 
 }
