@@ -25,14 +25,15 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 import com.example.projetfilms.viewModel.DetailsViewModel
-import com.example.projetfilms.viewModel.ListViewModel
 
 @Composable
 fun DetailsPage(backTo: () -> Unit, id: Int, viewModel: DetailsViewModel?) {
     viewModel?.let { vuModel ->
 
         vuModel.getMovieById(id)
+        vuModel.getActorsByMovieId(id)
         val movie by viewModel.movieDetails.collectAsState()
+        val actors by viewModel.movieCredits.collectAsState()
 
 
         val painter =
@@ -61,14 +62,14 @@ fun DetailsPage(backTo: () -> Unit, id: Int, viewModel: DetailsViewModel?) {
                 )
                 Column(modifier = Modifier.absolutePadding(left = 24.dp)) {
                     Spacer(Modifier.size(24.dp))
-                    InfosMovie(movie = it,genres = lesGenres)
+                    InfosMovie(movie = it, genres = lesGenres)
                     Spacer(Modifier.size(24.dp))
                     Buttons()
                     Spacer(Modifier.size(24.dp))
                     Overview(movie = it)
                 }
                 Spacer(Modifier.size(24.dp))
-                //            ActorsCarrousel(movie.actors)
+                ActorsCarrousel(actors)
                 Spacer(Modifier.size(24.dp))
             }
         }

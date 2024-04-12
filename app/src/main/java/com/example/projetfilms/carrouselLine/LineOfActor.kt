@@ -13,13 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.projetfilms.carrouselCard.ActorCard
-import com.example.projetfilms.fakedata.Actor
-import com.example.projetfilms.fakedata.getActors
+import com.example.projetfilms.network.Casting
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 
 @Composable
 fun LineOfActor(
-    actors: List<Actor>,
+    actors: List<Casting?>,
     title: String
 ) {
     Column(
@@ -31,8 +30,10 @@ fun LineOfActor(
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(items = actors) {
-                ActorCard(actor = it)
+            items(items = actors) {cast->
+                cast?.let {
+                    it.takeIf { it.job == "Acting" }?.let { actor -> ActorCard(actor = actor) }
+                }
             }
         }
     }
@@ -43,6 +44,6 @@ fun LineOfActor(
 @Composable
 fun PreviewLineOfActors() {
     ProjetFilmsTheme {
-        LineOfActor(actors = getActors(), title = "nom")
+//        LineOfActor(actors = getActors(), title = "nom")
     }
 }

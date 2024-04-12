@@ -22,6 +22,7 @@ fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel?) {
         val moviesUp by viewModel.upcoming.collectAsState()
         val moviesRate by viewModel.rating.collectAsState()
         val moviesPlay by viewModel.playing.collectAsState()
+        val lesgenres by viewModel.genres.collectAsState()
 
         LazyColumn(
             modifier = Modifier
@@ -29,16 +30,36 @@ fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel?) {
             verticalArrangement = Arrangement.spacedBy(40.dp)
         ) {
             item {
-                LineOfMovies(movies = moviesPop, func = toDetails, title = "Popular",viewModel = viewModel)
+                LineOfMovies(
+                    movies = moviesPop,
+                    func = toDetails,
+                    title = "Popular",
+                    lesgenres = lesgenres
+                )
             }
             item {
-                LineOfMovies(movies = moviesUp, func = toDetails, title = "Upcoming",viewModel = viewModel)
+                LineOfMovies(
+                    movies = moviesUp,
+                    func = toDetails,
+                    title = "Upcoming",
+                    lesgenres = lesgenres
+                )
             }
             item {
-                LineOfMovies(movies = moviesRate, func = toDetails, title = "Top Rated",viewModel = viewModel)
+                LineOfMovies(
+                    movies = moviesRate,
+                    func = toDetails,
+                    title = "Top Rated",
+                    lesgenres = lesgenres
+                )
             }
             item {
-                LineOfMovies(movies = moviesPlay, func = toDetails, title = "Now Playing",viewModel = viewModel)
+                LineOfMovies(
+                    movies = moviesPlay,
+                    func = toDetails,
+                    title = "Now Playing",
+                    lesgenres = lesgenres
+                )
             }
         }
     }

@@ -6,19 +6,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import com.example.projetfilms.R
-import com.example.projetfilms.fakedata.Actor
-import com.example.projetfilms.fakedata.getActor
+import com.example.projetfilms.network.Casting
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 
 @Composable
-fun ActorCard(actor: Actor, modifier: Modifier = Modifier) {
+fun ActorCard(actor: Casting, modifier: Modifier = Modifier) {
+    val painter =
+        rememberAsyncImagePainter(model = "https://image.tmdb.org/t/p/w1280${actor.picture}")
     CustomCard(
-        image = painterResource(id = R.drawable.acteur),
+        image = painter,
         title = actor.name,
-        subtitle = actor.role,
+        subtitle = actor.character,
         modifier = modifier.width(150.dp),
-        isMovie = false,
+        isMovie = false
     )
 }
 
@@ -26,6 +28,6 @@ fun ActorCard(actor: Actor, modifier: Modifier = Modifier) {
 @Composable
 fun PreviewActorCard() {
     ProjetFilmsTheme {
-        ActorCard(actor = getActor(0))
+        ActorCard(actor = Casting(name = "bla", picture = "blah", character = "blah", job = "blah"))
     }
 }

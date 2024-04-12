@@ -21,5 +21,8 @@ interface ApiService {
 
     @GET("3/movie/{movie_id}")
     suspend fun findMovieById(@Path("movie_id") movieId:Int): MovieDetails
+
+    @GET("3/movie/{movie_id}/credits")
+    suspend fun getActorsOfMovie(@Path("movie_id") movieId:Int):MovieCredits
 }
 

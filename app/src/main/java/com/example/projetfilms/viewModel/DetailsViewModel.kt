@@ -3,6 +3,7 @@ package com.example.projetfilms.viewModel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.projetfilms.network.Casting
 import com.example.projetfilms.network.FilmApi
 import com.example.projetfilms.network.MovieDetails
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,6 +16,9 @@ class DetailsViewModel : ViewModel() {
     private val _movieDetails = MutableStateFlow<MovieDetails?>(null)
     val movieDetails: StateFlow<MovieDetails?> = _movieDetails.asStateFlow()
 
+    private val _movieCredits = MutableStateFlow<List<Casting?>>(emptyList())
+    val movieCredits: StateFlow<List<Casting?>> = _movieCredits.asStateFlow()
+
     fun getMovieById(movieId: Int) {
         viewModelScope.launch {
             try {
@@ -25,6 +29,17 @@ class DetailsViewModel : ViewModel() {
                 _movieDetails.value = null
             }
         }
+    }
 
+    fun getActorsByMovieId(movieId: Int){
+        viewModelScope.launch {
+            try {
+                val actors = FilmApi.retrofitService.getActorsOfMovie(movieId = movieId)
+                _movieCredits.value = actors.cast
+            } catch (e: Exception) {
+                Log.e("MovieId", e.stackTraceToString())
+                _movieCredits.value = emptyList()
+            }
+        }
     }
 }
