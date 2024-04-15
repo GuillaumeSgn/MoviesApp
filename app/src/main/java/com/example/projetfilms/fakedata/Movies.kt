@@ -12,16 +12,11 @@ data class Movies(
     val rating: Float,
     @Json(name = "genre_ids")
     val genre: List<Int>,
-//    val actors: List<Actor>,
     @Json(name = "poster_path")
     val poster: String,
     @Json(name = "release_date")
     val date: String,
-//    val duree: String
-) {
-    companion object {
-
-    }
-}
+    val isFavorite: Boolean = false
+)
 
 

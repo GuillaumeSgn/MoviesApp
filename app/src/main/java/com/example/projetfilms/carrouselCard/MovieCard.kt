@@ -32,7 +32,7 @@ fun MovieCard(
             .clickable { toDetails(movie.movieId) }
             .width(150.dp),
         isMovie = true,
-
+        isFavorite = movie.isFavorite
         )
 
 }

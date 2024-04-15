@@ -24,7 +24,8 @@ fun CustomCard(
     title: String,
     subtitle: String,
     modifier: Modifier,
-    isMovie: Boolean
+    isMovie: Boolean,
+    isFavorite:Boolean
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(4.dp),
@@ -46,7 +47,7 @@ fun CustomCard(
                 horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterHorizontally),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                if (isMovie) {
+                if (isMovie && isFavorite) {
                     Icon(
                         imageVector = Icons.Filled.Favorite,
                         contentDescription = null,
