@@ -1,4 +1,4 @@
-package com.example.presentation
+package com.example.presentation.home
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType

@@ -1,4 +1,4 @@
-package com.example.presentation
+package com.example.presentation.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
