@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class DetailsViewModel : ViewModel() {
 
@@ -24,19 +25,19 @@ class DetailsViewModel : ViewModel() {
             try {
                 val theMovie = FilmApi.retrofitService.findMovieById(movieId = movieId)
                 _movieDetails.value = theMovie
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Log.e("MovieId", e.stackTraceToString())
                 _movieDetails.value = null
             }
         }
     }
 
-    fun getActorsByMovieId(movieId: Int){
+    fun getActorsByMovieId(movieId: Int) {
         viewModelScope.launch {
             try {
                 val actors = FilmApi.retrofitService.getActorsOfMovie(movieId = movieId)
                 _movieCredits.value = actors.cast
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Log.e("MovieId", e.stackTraceToString())
                 _movieCredits.value = emptyList()
             }

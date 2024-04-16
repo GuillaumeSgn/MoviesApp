@@ -6,11 +6,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.projetfilms.fakedata.Movies
 import com.example.projetfilms.network.FilmApi
 import com.example.projetfilms.network.Genre
-import com.example.projetfilms.network.MovieDetails
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class ListViewModel : ViewModel() {
 
@@ -42,7 +42,7 @@ class ListViewModel : ViewModel() {
             try {
                 val listM = FilmApi.retrofitService.getListPopular()
                 _popular.value = listM.results
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Log.e("viewmodel", e.stackTraceToString())
 
                 _popular.value = emptyList()
@@ -55,7 +55,7 @@ class ListViewModel : ViewModel() {
             try {
                 val listM = FilmApi.retrofitService.getListNowPlaying()
                 _playing.value = listM.results
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Log.e("viewmodel", e.stackTraceToString())
 
                 _playing.value = emptyList()
@@ -68,7 +68,7 @@ class ListViewModel : ViewModel() {
             try {
                 val listM = FilmApi.retrofitService.getListTopRated()
                 _rating.value = listM.results
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Log.e("viewmodel", e.stackTraceToString())
                 _rating.value = emptyList()
             }
@@ -80,7 +80,7 @@ class ListViewModel : ViewModel() {
             try {
                 val listM = FilmApi.retrofitService.getListUpcoming()
                 _upcoming.value = listM.results
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Log.e("viewmodelMovies", e.stackTraceToString())
                 _upcoming.value = emptyList()
             }
@@ -93,14 +93,10 @@ class ListViewModel : ViewModel() {
                 val listGenre = FilmApi.retrofitService.getAllGenres()
                 _genres.value = listGenre.genres
                 Log.v("viewmodelGenres", listGenre.toString())
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Log.e("viewmodelGenres", e.stackTraceToString())
                 _genres.value = emptyList()
-
             }
         }
     }
-
-
-
 }

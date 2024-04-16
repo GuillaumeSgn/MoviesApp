@@ -18,5 +18,3 @@ data class Movies(
     val date: String,
     val isFavorite: Boolean = false
 )
-
-

@@ -27,6 +27,7 @@ import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 import com.example.projetfilms.viewModel.DetailsViewModel
 
 @Composable
+@Suppress("MagicNumber")
 fun DetailsPage(backTo: () -> Unit, id: Int, viewModel: DetailsViewModel?) {
     viewModel?.let { vuModel ->
 
@@ -34,7 +35,6 @@ fun DetailsPage(backTo: () -> Unit, id: Int, viewModel: DetailsViewModel?) {
         vuModel.getActorsByMovieId(id)
         val movie by viewModel.movieDetails.collectAsState()
         val actors by viewModel.movieCredits.collectAsState()
-
 
         val painter =
             rememberAsyncImagePainter(model = "https://image.tmdb.org/t/p/w1280${movie?.poster}")
@@ -75,7 +75,6 @@ fun DetailsPage(backTo: () -> Unit, id: Int, viewModel: DetailsViewModel?) {
         }
     }
 }
-
 
 @Preview
 @Composable

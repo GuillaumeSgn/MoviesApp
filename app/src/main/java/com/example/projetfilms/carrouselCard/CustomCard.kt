@@ -25,7 +25,7 @@ fun CustomCard(
     subtitle: String,
     modifier: Modifier,
     isMovie: Boolean,
-    isFavorite:Boolean
+    isFavorite: Boolean
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(4.dp),
@@ -58,5 +58,4 @@ fun CustomCard(
             }
         }
     }
-
 }

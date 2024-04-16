@@ -37,7 +37,6 @@ fun LineOfMovies(
     }
 }
 
-
 @Preview
 @Composable
 fun PreviewLineOfMovies() {

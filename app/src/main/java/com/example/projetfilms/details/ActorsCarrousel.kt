@@ -11,7 +11,6 @@ fun ActorsCarrousel(actors: List<Casting?>) {
     LineOfActor(actors = actors, title = "Cast")
 }
 
-
 @Preview
 @Composable
 fun PreviewActorsCarrousel() {

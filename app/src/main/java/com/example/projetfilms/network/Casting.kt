@@ -7,6 +7,6 @@ data class Casting(
     @Json(name = "profile_path")
     val picture: String,
     val character: String,
-    @Json(name ="known_for_department")
+    @Json(name = "known_for_department")
     val job: String
 )

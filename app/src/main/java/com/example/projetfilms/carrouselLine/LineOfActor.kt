@@ -30,7 +30,7 @@ fun LineOfActor(
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(items = actors) {cast->
+            items(items = actors) { cast ->
                 cast?.let {
                     it.takeIf { it.job == "Acting" }?.let { actor -> ActorCard(actor = actor) }
                 }
@@ -38,7 +38,6 @@ fun LineOfActor(
         }
     }
 }
-
 
 @Preview
 @Composable

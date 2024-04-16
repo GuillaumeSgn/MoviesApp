@@ -8,7 +8,7 @@ import com.example.projetfilms.network.MovieDetails
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 
 @Composable
-fun InfosMovie(movie: MovieDetails?,genres:String) {
+fun InfosMovie(movie: MovieDetails?, genres: String) {
     movie?.let {
         Text(
             text = it.title,
@@ -25,6 +25,6 @@ fun InfosMovie(movie: MovieDetails?,genres:String) {
 @Composable
 fun PreviewInfosMovie() {
     ProjetFilmsTheme {
-        InfosMovie(movie = null,"gneuh")
+        InfosMovie(movie = null, "gneuh")
     }
 }

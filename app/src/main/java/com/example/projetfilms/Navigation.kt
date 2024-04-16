@@ -10,7 +10,6 @@ import com.example.projetfilms.details.DetailsPage
 import com.example.projetfilms.viewModel.DetailsViewModel
 import com.example.projetfilms.viewModel.ListViewModel
 
-
 @Composable
 fun Nav() {
     val navController = rememberNavController()
@@ -32,7 +31,8 @@ fun Nav() {
                                 inclusive = true
                             }
                         }
-                    }, id = it,
+                    },
+                    id = it,
                     viewModel = DetailsViewModel()
                 )
             }

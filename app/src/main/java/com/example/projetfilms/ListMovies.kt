@@ -13,10 +13,8 @@ import com.example.projetfilms.carrouselLine.LineOfMovies
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 import com.example.projetfilms.viewModel.ListViewModel
 
-
 @Composable
 fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel?) {
-
     viewModel?.let {
         val moviesPop by viewModel.popular.collectAsState()
         val moviesUp by viewModel.upcoming.collectAsState()
@@ -63,7 +61,6 @@ fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel?) {
             }
         }
     }
-
 }
 
 @Preview

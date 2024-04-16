@@ -8,8 +8,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-
-private const val BASE_URL = "https://api.themoviedb.org/"
+private const val BaseUrl = "https://api.themoviedb.org/"
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
@@ -19,19 +18,25 @@ val okHttpClient = OkHttpClient.Builder()
         val originalRequest = chain.request()
         val newRequest = originalRequest.newBuilder()
             .addHeader("accept", "application/json")
-            .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOWNlM2YzMjRlM2NlNDQ2NmJmYzIyMDM5YmE4MjE4OSIsInN1YiI6IjY2MTY5MDc0YzdhN2UwMDE2NDA2NzlkZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tt12wmkdFSGUTHYpo1ALHc1TbXGb49hp2-XYH615k3o")
+            .addHeader(
+                "Authorization",
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOWNlM2YzMjRlM2NlNDQ2NmJmYzIyMDM5YmE4M" +
+                    "jE4OSIsInN1YiI6IjY2MTY5MDc0YzdhN2UwMDE2NDA2NzlkZSIsInNjb3BlcyI6WyJhcGlfcmVh" +
+                    "ZCJdLCJ2ZXJzaW9uIjoxfQ.tt12wmkdFSGUTHYpo1ALHc1TbXGb49hp2-XYH615k3o"
+            )
             .build()
         chain.proceed(newRequest)
     }
-    .addNetworkInterceptor(HttpLoggingInterceptor{
-        Log.v("network",it)
-    }.apply { level = HttpLoggingInterceptor.Level.BODY })
+    .addNetworkInterceptor(
+        HttpLoggingInterceptor {
+            Log.v("network", it)
+        }.apply { level = HttpLoggingInterceptor.Level.BODY }
+    )
     .build()
-
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BASE_URL)
+    .baseUrl(BaseUrl)
     .client(okHttpClient)
     .build()
 

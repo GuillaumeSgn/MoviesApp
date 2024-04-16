@@ -3,11 +3,9 @@ package com.example.projetfilms.carrouselCard
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.example.projetfilms.R
 import com.example.projetfilms.network.Casting
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 

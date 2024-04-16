@@ -18,7 +18,6 @@ fun MovieCard(
     toDetails: (Int) -> Unit,
     lesgenres: List<Genre>
 ) {
-
     val filterString = lesgenres.filter { (int, _) -> int in movie.genre }.map { it.name }
     val resultString = filterString.joinToString(separator = ",")
 
@@ -33,11 +32,11 @@ fun MovieCard(
             .width(150.dp),
         isMovie = true,
         isFavorite = movie.isFavorite
-        )
-
+    )
 }
 
 @Preview
+@Suppress("MagicNumber")
 @Composable
 private fun PreviewCard() {
     ProjetFilmsTheme {
@@ -54,6 +53,5 @@ private fun PreviewCard() {
             toDetails = {},
             lesgenres = emptyList()
         )
-
     }
 }
