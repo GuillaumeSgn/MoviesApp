@@ -1,5 +1,6 @@
 package com.example.data.entities
 
+import com.example.projetfilms.network.Genre
 import com.squareup.moshi.Json
 
 data class MovieDetails(
