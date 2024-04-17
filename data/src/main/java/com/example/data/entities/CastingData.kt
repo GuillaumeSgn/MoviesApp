@@ -1,8 +1,10 @@
 package com.example.data.entities
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-data class Casting(
+@JsonClass(generateAdapter = true)
+data class CastingData(
     val name: String,
     @Json(name = "profile_path")
     val picture: String,

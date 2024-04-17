@@ -1,8 +1,10 @@
 package com.example.data.entities
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-data class Movies(
+@JsonClass(generateAdapter = true)
+data class MoviesData(
     @Json(name = "id")
     val movieId: Int,
     val title: String,
