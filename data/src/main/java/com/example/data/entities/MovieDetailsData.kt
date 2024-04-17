@@ -1,5 +1,6 @@
 package com.example.data.entities
 
+import com.example.domain.MovieDetails
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -12,4 +13,12 @@ data class MovieDetailsData(
     @Json(name = "release_date")
     val date: String,
     val genres: List<GenreData>
+)
+
+fun MovieDetailsData.mapToDomain() = MovieDetails(
+    title = title,
+    poster = poster,
+    overview = overview,
+    date = date,
+    genres = genres.map { it.mapToDomain() }
 )

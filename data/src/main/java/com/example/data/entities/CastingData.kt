@@ -1,5 +1,6 @@
 package com.example.data.entities
 
+import com.example.domain.Casting
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -11,4 +12,11 @@ data class CastingData(
     val character: String,
     @Json(name = "known_for_department")
     val job: String
+)
+
+fun CastingData.mapToDomain()= Casting(
+    name = name,
+    picture = picture,
+    character = character,
+    job = job
 )
