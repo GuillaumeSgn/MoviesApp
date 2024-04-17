@@ -33,8 +33,7 @@ android {
 }
 
 dependencies {
-
-    implementation(project(":app"))
+    implementation(project(":domain"))
     implementation(libs.okhttp)
     implementation(libs.converter.moshi)
     implementation(libs.moshi)
@@ -45,6 +44,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.ui.test.junit4)
+
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }

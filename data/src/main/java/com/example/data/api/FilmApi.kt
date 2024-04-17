@@ -1,7 +1,6 @@
 package com.example.data.api
 
 import android.util.Log
-import com.example.projetfilms.network.ApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
