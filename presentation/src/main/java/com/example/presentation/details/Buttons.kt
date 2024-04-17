@@ -23,9 +23,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.projetfilms.ui.theme.GreenBorder
-import com.example.projetfilms.ui.theme.ProjetFilmsTheme
-import com.example.projetfilms.ui.theme.RedBorder
+import com.example.presentation.theme.GreenBorder
+import com.example.presentation.theme.ProjetFilmsTheme
+import com.example.presentation.theme.RedBorder
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

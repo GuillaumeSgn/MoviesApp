@@ -2,9 +2,9 @@ package com.example.presentation.details
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.projetfilms.carrouselLine.LineOfActor
-import com.example.projetfilms.network.Casting
-import com.example.projetfilms.ui.theme.ProjetFilmsTheme
+import com.example.domain.Casting
+import com.example.presentation.carrouselLine.LineOfActor
+import com.example.presentation.theme.ProjetFilmsTheme
 
 @Composable
 fun ActorsCarrousel(actors: List<Casting?>) {

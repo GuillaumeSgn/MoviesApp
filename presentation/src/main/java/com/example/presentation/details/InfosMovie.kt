@@ -4,9 +4,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.projetfilms.network.Genre
-import com.example.projetfilms.network.MovieDetails
-import com.example.projetfilms.ui.theme.ProjetFilmsTheme
+import com.example.domain.Genre
+import com.example.domain.MovieDetails
+import com.example.presentation.theme.ProjetFilmsTheme
 
 @Composable
 fun InfosMovie(movie: MovieDetails?, genres: String) {

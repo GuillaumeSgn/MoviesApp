@@ -6,9 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.projetfilms.details.DetailsPage
-import com.example.projetfilms.viewModel.DetailsViewModel
-import com.example.projetfilms.viewModel.ListViewModel
+import com.example.presentation.details.DetailsPage
+import com.example.presentation.details.DetailsViewModel
 
 @Composable
 fun Nav() {

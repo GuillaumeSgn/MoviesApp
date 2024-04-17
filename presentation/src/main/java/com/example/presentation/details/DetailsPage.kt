@@ -23,12 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.example.projetfilms.details.ActorsCarrousel
-import com.example.projetfilms.details.Buttons
-import com.example.projetfilms.details.InfosMovie
-import com.example.projetfilms.details.Overview
-import com.example.projetfilms.ui.theme.ProjetFilmsTheme
-import com.example.projetfilms.viewModel.DetailsViewModel
+import com.example.presentation.theme.ProjetFilmsTheme
 
 @Composable
 @Suppress("MagicNumber")

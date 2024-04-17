@@ -3,14 +3,13 @@ package com.example.presentation.home
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.projetfilms.fakedata.Movies
-import com.example.projetfilms.network.FilmApi
-import com.example.projetfilms.network.Genre
+import com.example.domain.Genre
+import com.example.domain.Movies
+import java.io.IOException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.io.IOException
 
 class ListViewModel : ViewModel() {
 
@@ -40,8 +39,8 @@ class ListViewModel : ViewModel() {
     private fun getListMoviePopular() {
         viewModelScope.launch {
             try {
-                val listM = FilmApi.retrofitService.getListPopular()
-                _popular.value = listM.results
+//                val listM = FilmApi.retrofitService.getListPopular()
+//                _popular.value = listM.results
             } catch (e: IOException) {
                 Log.e("viewmodel", e.stackTraceToString())
 
@@ -53,8 +52,8 @@ class ListViewModel : ViewModel() {
     private fun getListMoviePlaying() {
         viewModelScope.launch {
             try {
-                val listM = FilmApi.retrofitService.getListNowPlaying()
-                _playing.value = listM.results
+//                val listM = FilmApi.retrofitService.getListNowPlaying()
+//                _playing.value = listM.results
             } catch (e: IOException) {
                 Log.e("viewmodel", e.stackTraceToString())
 
@@ -66,8 +65,8 @@ class ListViewModel : ViewModel() {
     private fun getListMovieRating() {
         viewModelScope.launch {
             try {
-                val listM = FilmApi.retrofitService.getListTopRated()
-                _rating.value = listM.results
+//                val listM = FilmApi.retrofitService.getListTopRated()
+//                _rating.value = listM.results
             } catch (e: IOException) {
                 Log.e("viewmodel", e.stackTraceToString())
                 _rating.value = emptyList()
@@ -78,8 +77,8 @@ class ListViewModel : ViewModel() {
     private fun getListMovieUpcoming() {
         viewModelScope.launch {
             try {
-                val listM = FilmApi.retrofitService.getListUpcoming()
-                _upcoming.value = listM.results
+//                val listM = FilmApi.retrofitService.getListUpcoming()
+//                _upcoming.value = listM.results
             } catch (e: IOException) {
                 Log.e("viewmodelMovies", e.stackTraceToString())
                 _upcoming.value = emptyList()
@@ -90,9 +89,9 @@ class ListViewModel : ViewModel() {
     private fun getAllGenres() {
         viewModelScope.launch {
             try {
-                val listGenre = FilmApi.retrofitService.getAllGenres()
-                _genres.value = listGenre.genres
-                Log.v("viewmodelGenres", listGenre.toString())
+//                val listGenre = FilmApi.retrofitService.getAllGenres()
+//                _genres.value = listGenre.genres
+//                Log.v("viewmodelGenres", listGenre.toString())
             } catch (e: IOException) {
                 Log.e("viewmodelGenres", e.stackTraceToString())
                 _genres.value = emptyList()
