@@ -34,30 +34,8 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+
     implementation(project(":app"))
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.ui.googlefonts)
-    implementation(libs.androidx.material.icons)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.okhttp)
-    implementation(libs.converter.moshi)
-    implementation(libs.androidx.lifecycle)
-    implementation(libs.moshi)
-    implementation(libs.logging)
-    implementation(libs.coil)
 
     testImplementation(libs.junit)
 

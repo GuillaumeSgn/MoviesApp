@@ -1,5 +1,0 @@
-NoConsecutiveBlankLines - [ListMovies.kt] at C:\Users\w190788\projet\projetfilms\presentation\src\main\java\com\example\presentation\ListMovies.kt:16:1 - Signature=ListMovies.kt$ 
-ImportOrdering - [ExampleUnitTest.kt] at C:\Users\w190788\projet\projetfilms\presentation\src\test\java\com\example\presentation\ExampleUnitTest.kt:3:1 - Signature=ExampleUnitTest.kt$import org.junit.Test import org.junit.Assert.*
-FinalNewline - [ExampleUnitTest.kt] at C:\Users\w190788\projet\projetfilms\presentation\src\test\java\com\example\presentation\ExampleUnitTest.kt:1:1 - Signature=ExampleUnitTest.kt$com.example.presentation.ExampleUnitTest.kt
-NoWildcardImports - [ExampleUnitTest.kt] at C:\Users\w190788\projet\projetfilms\presentation\src\test\java\com\example\presentation\ExampleUnitTest.kt:3:1 - Signature=ExampleUnitTest.kt$import org.junit.Assert.*
-WildcardImport - [ExampleUnitTest.kt] at C:\Users\w190788\projet\projetfilms\presentation\src\test\java\com\example\presentation\ExampleUnitTest.kt:3:1 - Signature=ExampleUnitTest.kt$import org.junit.Assert.*
