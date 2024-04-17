@@ -3,7 +3,7 @@ package com.example.projetfilms.network
 import com.squareup.moshi.Json
 
 data class Casting(
-    var name: String,
+    val name: String,
     @Json(name = "profile_path")
     val picture: String,
     val character: String,
