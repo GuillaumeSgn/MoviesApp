@@ -1,4 +1,4 @@
-package com.example.presentation.viewModel
+package com.example.presentation.home
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -6,11 +6,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.projetfilms.fakedata.Movies
 import com.example.projetfilms.network.FilmApi
 import com.example.projetfilms.network.Genre
-import java.io.IOException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class ListViewModel : ViewModel() {
 

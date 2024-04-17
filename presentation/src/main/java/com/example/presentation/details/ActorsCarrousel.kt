@@ -14,7 +14,8 @@ fun ActorsCarrousel(actors: List<Casting?>) {
 @Preview
 @Composable
 fun PreviewActorsCarrousel() {
+    val actors = Casting(name = "truc", picture = "truc", character = "truc", job = "truc")
     ProjetFilmsTheme {
-//        ActorsCarrousel(actors = getActors())
+        ActorsCarrousel(actors = listOf(actors, actors))
     }
 }

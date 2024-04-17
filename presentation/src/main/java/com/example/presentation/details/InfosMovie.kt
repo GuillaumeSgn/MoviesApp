@@ -4,6 +4,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.projetfilms.network.Genre
 import com.example.projetfilms.network.MovieDetails
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 
@@ -25,6 +26,17 @@ fun InfosMovie(movie: MovieDetails?, genres: String) {
 @Composable
 fun PreviewInfosMovie() {
     ProjetFilmsTheme {
-        InfosMovie(movie = null, "gneuh")
+        InfosMovie(
+            movie = MovieDetails(
+                title = "truc",
+                poster = "truc",
+                overview = "truc",
+                date = "truc",
+                genres = listOf(
+                    Genre(id = 0, name = "truc")
+                )
+            ),
+            "gneuh"
+        )
     }
 }
