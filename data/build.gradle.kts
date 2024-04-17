@@ -35,9 +35,6 @@ android {
 dependencies {
 
     implementation(project(":app"))
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.okhttp)
     implementation(libs.converter.moshi)
     implementation(libs.moshi)
