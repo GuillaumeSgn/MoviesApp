@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.example.projetfilms.carrouselLine.LineOfMovies
 import com.example.projetfilms.ui.theme.ProjetFilmsTheme
 import com.example.projetfilms.viewModel.ListViewModel
+
 @Composable
 fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel?) {
     viewModel?.let {
