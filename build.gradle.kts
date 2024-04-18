@@ -8,10 +8,12 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.detekt) apply false
     alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.hilt) apply false
 }
 
 subprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
+
     configure<DetektExtension> {
         toolVersion = "1.23.3"
         config.setFrom(file("$rootDir/config/detekt/detekt.yml"))
