@@ -1,47 +1,31 @@
 package com.example.data.api
 
-import android.util.Log
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import com.example.data.entities.MovieCreditsData
+import com.example.data.entities.MovieDetailsData
+import com.example.data.entities.MovieGenreData
+import com.example.data.entities.ResultData
+import retrofit2.http.GET
+import retrofit2.http.Path
 
-private const val BaseUrl = "https://api.themoviedb.org/"
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
+interface FilmApi {
+    @GET("3/movie/popular")
+    suspend fun getListPopular(): ResultData
 
-val okHttpClient = OkHttpClient.Builder()
-    .addInterceptor { chain ->
-        val originalRequest = chain.request()
-        val newRequest = originalRequest.newBuilder()
-            .addHeader("accept", "application/json")
-            .addHeader(
-                "Authorization",
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOWNlM2YzMjRlM2NlNDQ2NmJmYzIyMDM5YmE4M" +
-                    "jE4OSIsInN1YiI6IjY2MTY5MDc0YzdhN2UwMDE2NDA2NzlkZSIsInNjb3BlcyI6WyJhcGlfcmVh" +
-                    "ZCJdLCJ2ZXJzaW9uIjoxfQ.tt12wmkdFSGUTHYpo1ALHc1TbXGb49hp2-XYH615k3o"
-            )
-            .build()
-        chain.proceed(newRequest)
-    }
-    .addNetworkInterceptor(
-        HttpLoggingInterceptor {
-            Log.v("network", it)
-        }.apply { level = HttpLoggingInterceptor.Level.BODY }
-    )
-    .build()
+    @GET("3/movie/now_playing")
+    suspend fun getListNowPlaying(): ResultData
 
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BaseUrl)
-    .client(okHttpClient)
-    .build()
+    @GET("3/movie/top_rated")
+    suspend fun getListTopRated(): ResultData
 
-object FilmApi {
-    val retrofitService: ApiService by lazy {
-        retrofit.create(ApiService::class.java)
-    }
+    @GET("3/movie/upcoming")
+    suspend fun getListUpcoming(): ResultData
+
+    @GET("3/genre/movie/list")
+    suspend fun getAllGenres(): MovieGenreData
+
+    @GET("3/movie/{movie_id}")
+    suspend fun findMovieById(@Path("movie_id") movieId: Int): MovieDetailsData
+
+    @GET("3/movie/{movie_id}/credits")
+    suspend fun getActorsOfMovie(@Path("movie_id") movieId: Int): MovieCreditsData
 }

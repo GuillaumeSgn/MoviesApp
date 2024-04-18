@@ -9,4 +9,4 @@ data class MovieCreditsData(
     val cast: List<CastingData>
 )
 
-fun MovieCreditsData.mapToDomain() = MovieCredits(id,cast.map { it.mapToDomain() })
+fun MovieCreditsData.mapToDomain() = MovieCredits(id, cast.map { it.mapToDomain() })

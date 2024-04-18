@@ -14,7 +14,7 @@ data class CastingData(
     val job: String
 )
 
-fun CastingData.mapToDomain()= Casting(
+fun CastingData.mapToDomain() = Casting(
     name = name,
     picture = picture,
     character = character,
