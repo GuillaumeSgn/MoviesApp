@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    kotlin("kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -50,24 +52,13 @@ android {
 }
 
 dependencies {
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":presentation"))
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.ui.googlefonts)
-    implementation(libs.androidx.material.icons)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.okhttp)
-    implementation(libs.converter.moshi)
-    implementation(libs.androidx.lifecycle)
-    implementation(libs.moshi)
-    implementation(libs.logging)
-    implementation(libs.coil)
+    implementation(libs.hilt.android)
+
+    kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit)
 
