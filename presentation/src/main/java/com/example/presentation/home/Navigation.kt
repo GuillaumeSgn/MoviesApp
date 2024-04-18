@@ -1,13 +1,13 @@
 package com.example.presentation.home
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.presentation.details.DetailsPage
-import com.example.presentation.details.DetailsViewModel
 
 @Composable
 fun Nav() {
@@ -16,7 +16,7 @@ fun Nav() {
         composable("menu") {
             ListMovies(toDetails = { id ->
                 navController.navigate("details/$id")
-            }, viewModel = ListViewModel())
+            }, viewModel = hiltViewModel())
         }
         composable(
             "details/{id}",
@@ -32,7 +32,7 @@ fun Nav() {
                         }
                     },
                     id = it,
-                    viewModel = DetailsViewModel()
+                    viewModel = hiltViewModel()
                 )
             }
         }

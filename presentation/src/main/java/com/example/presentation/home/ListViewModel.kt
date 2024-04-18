@@ -6,13 +6,18 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.Genre
 import com.example.domain.Movies
 import com.example.domain.repository.MovieRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.io.IOException
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class ListViewModel(val repository: MovieRepository) : ViewModel() {
+@HiltViewModel
+class ListViewModel @Inject constructor(
+    private val repository: MovieRepository
+) : ViewModel() {
 
     private val _popular = MutableStateFlow<List<Movies>>(emptyList())
     val popular: StateFlow<List<Movies>> = _popular.asStateFlow()
@@ -30,8 +35,6 @@ class ListViewModel(val repository: MovieRepository) : ViewModel() {
     val genres: StateFlow<List<Genre>> = _genres.asStateFlow()
 
     init {
-        val test : String = "1"
-        val test2 : Double = test.toDouble()
         getListMoviePopular()
         getListMoviePlaying()
         getListMovieRating()

@@ -6,13 +6,18 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.Casting
 import com.example.domain.MovieDetails
 import com.example.domain.repository.MovieRepository
-import java.io.IOException
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.io.IOException
+import javax.inject.Inject
 
-class DetailsViewModel(val repository: MovieRepository) : ViewModel() {
+@HiltViewModel
+class DetailsViewModel @Inject constructor(
+    private val repository: MovieRepository
+) : ViewModel() {
 
     private val _movieDetails = MutableStateFlow<MovieDetails?>(null)
     val movieDetails: StateFlow<MovieDetails?> = _movieDetails.asStateFlow()
