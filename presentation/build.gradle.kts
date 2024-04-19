@@ -33,10 +33,20 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
+    }
+    flavorDimensions.add("env")
+    productFlavors {
+        create("mock") {
+            dimension = "env"
+        }
+        create("prod") {
+            dimension = "env"
+        }
     }
 }
 

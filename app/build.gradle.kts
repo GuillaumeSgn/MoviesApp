@@ -39,6 +39,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
     composeOptions {
@@ -49,12 +50,23 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    flavorDimensions.add("env")
+    productFlavors {
+        create("mock") {
+            applicationIdSuffix = ".mock"
+            dimension = "env"
+        }
+        create("prod") {
+            dimension = "env"
+        }
+    }
 }
 
 dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":presentation"))
+    implementation(project(":data-mock"))
 
     implementation(libs.hilt.android)
 
