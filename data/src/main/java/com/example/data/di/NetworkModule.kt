@@ -50,11 +50,12 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
-        moshi: Moshi
+        moshi: Moshi,
+        @ApiUrl url: String
     ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .baseUrl("https://api.themoviedb.org/")
+            .baseUrl(url)
             .client(okHttpClient)
             .build()
     }

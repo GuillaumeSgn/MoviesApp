@@ -8,7 +8,7 @@ import com.squareup.moshi.JsonClass
 data class CastingData(
     val name: String,
     @Json(name = "profile_path")
-    val picture: String,
+    val picture: String?,
     val character: String,
     @Json(name = "known_for_department")
     val job: String
@@ -16,7 +16,7 @@ data class CastingData(
 
 fun CastingData.mapToDomain() = Casting(
     name = name,
-    picture = picture,
+    picture = picture.orEmpty(),
     character = character,
     job = job
 )
