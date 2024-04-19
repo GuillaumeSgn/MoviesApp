@@ -1,0 +1,146 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+      "genre_ids": [
+        878,
+        12
+      ],
+      "id": 693134,
+      "original_language": "en",
+      "original_title": "Dune: Part Two",
+      "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee.",
+      "popularity": 2680.44,
+      "poster_path": "/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+      "release_date": "2024-02-27",
+      "title": "Dune: Part Two",
+      "video": false,
+      "vote_average": 8.292,
+      "vote_count": 3019
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg",
+      "genre_ids": [
+        16,
+        28,
+        10751,
+        35,
+        14
+      ],
+      "id": 1011985,
+      "original_language": "en",
+      "original_title": "Kung Fu Panda 4",
+      "overview": "Po is gearing up to become the spiritual leader of his Valley of Peace, but also needs someone to take his place as Dragon Warrior. As such, he will train a new kung fu practitioner for the spot and will encounter a villain called the Chameleon who conjures villains from the past.",
+      "popularity": 2015.484,
+      "poster_path": "/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
+      "release_date": "2024-03-02",
+      "title": "Kung Fu Panda 4",
+      "video": false,
+      "vote_average": 7.149,
+      "vote_count": 1113
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/j3Z3XktmWB1VhsS8iXNcrR86PXi.jpg",
+      "genre_ids": [
+        28,
+        878,
+        12,
+        14
+      ],
+      "id": 823464,
+      "original_language": "en",
+      "original_title": "Godzilla x Kong: The New Empire",
+      "overview": "Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence – and our own.",
+      "popularity": 1931.121,
+      "poster_path": "/tMefBSflR6PGQLv7WvFPpKLZkyk.jpg",
+      "release_date": "2024-03-27",
+      "title": "Godzilla x Kong: The New Empire",
+      "video": false,
+      "vote_average": 6.676,
+      "vote_count": 662
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7ZP8HtgOIDaBs12krXgUIygqEsy.jpg",
+      "genre_ids": [
+        878,
+        28,
+        14,
+        12
+      ],
+      "id": 601796,
+      "original_language": "ko",
+      "original_title": "외계+인 1부",
+      "overview": "Gurus in the late Goryeo dynasty try to obtain a fabled, holy sword, and humans in 2022 hunt down an alien prisoner that is locked in a human's body. The two parties cross paths when a time-traveling portal opens up.",
+      "popularity": 1094.732,
+      "poster_path": "/8QVDXDiOGHRcAD4oM6MXjE0osSj.jpg",
+      "release_date": "2022-07-20",
+      "title": "Alienoid",
+      "video": false,
+      "vote_average": 6.942,
+      "vote_count": 275
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/oe7mWkvYhK4PLRNAVSvonzyUXNy.jpg",
+      "genre_ids": [
+        28,
+        53
+      ],
+      "id": 359410,
+      "original_language": "en",
+      "original_title": "Road House",
+      "overview": "Ex-UFC fighter Dalton takes a job as a bouncer at a Florida Keys roadhouse, only to discover that this paradise is not all it seems.",
+      "popularity": 888.19,
+      "poster_path": "/bXi6IQiQDHD00JFio5ZSZOeRSBh.jpg",
+      "release_date": "2024-03-08",
+      "title": "Road House",
+      "video": false,
+      "vote_average": 7.066,
+      "vote_count": 1462
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cIztAxDn3H8JylRaJwiHHpkGe53.jpg",
+      "genre_ids": [
+        10751,
+        35,
+        16
+      ],
+      "id": 1239146,
+      "original_language": "en",
+      "original_title": "Woody Woodpecker Goes to Camp",
+      "overview": "After getting kicked out of the forest, Woody thinks he's found a forever home at Camp Woo Hoo — until an inspector threatens to shut down the camp.",
+      "popularity": 818.329,
+      "poster_path": "/8BYT4D0E0f1qFb9WfJPH4YUirL.jpg",
+      "release_date": "2024-04-12",
+      "title": "Woody Woodpecker Goes to Camp",
+      "video": false,
+      "vote_average": 7.296,
+      "vote_count": 54
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qekky2LbtT1wtbD5MDgQvjfZQ24.jpg",
+      "genre_ids": [
+        28,
+        53
+      ],
+      "id": 984324,
+      "original_language": "fr",
+      "original_title": "Le salaire de la peur",
+      "overview": "When an explosion at an oil well threatens hundreds of lives, a crack team is called upon to make a deadly desert crossing with nitroglycerine in tow.",
+      "popularity": 727.932,
+      "poster_path": "/jFK2ZLQUzo9pea0jfMCHDfvWsx7.jpg",
+      "release_date": "2024-03-28",
+      "title": "The Wages of Fear",
+      "video": false,
+      "vote_average": 5.744,
+      "vote_count": 168
+    }
+  ]
+}
