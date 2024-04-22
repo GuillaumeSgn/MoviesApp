@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="line_movies_title_popular">Popular</string>
+    <string name="line_movies_title_upcoming">Upcoming</string>
+    <string name="line_movies_title_topRated">Top Rated</string>
+    <string name="line_movies_title_nowPlaying">Now Playing</string>
+    <string name="download_button">Download</string>
+    <string name="share_button">Share</string>
+    <string name="favorite_button">Add To Favorites</string>
+    <string name="line_actors_title">Cast</string>
+    <string name="overview_title">Overview</string>
+</resources>

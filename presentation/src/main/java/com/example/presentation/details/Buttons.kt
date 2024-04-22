@@ -20,9 +20,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.presentation.R
 import com.example.presentation.theme.GreenBorder
 import com.example.presentation.theme.ProjetFilmsTheme
 import com.example.presentation.theme.RedBorder
@@ -37,12 +39,20 @@ fun Buttons() {
             .absolutePadding(right = 20.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
-        CustomButton(imageVector = Icons.Filled.Download, color = GreenBorder, text = "Download")
-        CustomButton(imageVector = Icons.Outlined.Share, color = GreenBorder, text = "Share")
+        CustomButton(
+            imageVector = Icons.Filled.Download,
+            color = GreenBorder,
+            text = stringResource(id = R.string.download_button)
+        )
+        CustomButton(
+            imageVector = Icons.Outlined.Share,
+            color = GreenBorder,
+            text = stringResource(id = R.string.share_button)
+        )
         CustomButton(
             imageVector = Icons.Filled.FavoriteBorder,
             color = RedBorder,
-            text = "Add To Favorites"
+            text = stringResource(id = R.string.favorite_button)
         )
     }
 }
