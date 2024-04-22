@@ -38,7 +38,7 @@ lint:
   interruptible: true
   stage: quality
   script:
-    - ./gradlew :app:lintDebug
+    - ./gradlew :app:lintProdDebug
   artifacts:
     paths:
       - app/build/lint/reports/lint-results-debug.html
@@ -56,7 +56,7 @@ Tests:
   interruptible: true
   stage: test
   script:
-    - ./gradlew :app:testDebug
+    - ./gradlew :app:testProdDebug
   tags:
     - docker-M
     - kazan-M
