@@ -1,51 +1,63 @@
 package com.example.presentation.details
 
-import android.util.Log
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.Casting
-import com.example.domain.MovieDetails
 import com.example.domain.repository.MovieRepository
+import com.example.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
-import java.io.IOException
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
     private val repository: MovieRepository
-) : ViewModel() {
+) : BaseViewModel<DetailsReducer.DetailsViewState, DetailsReducer.DetailsViewEvent, DetailsReducer.DetailsViewEffect>(
+    initialState = DetailsReducer.DetailsViewState.initial(),
+    reducer = DetailsReducer()
+) {
 
-    private val _movieDetails = MutableStateFlow<MovieDetails?>(null)
-    val movieDetails: StateFlow<MovieDetails?> = _movieDetails.asStateFlow()
-
-    private val _movieCredits = MutableStateFlow<List<Casting?>>(emptyList())
-    val movieCredits: StateFlow<List<Casting?>> = _movieCredits.asStateFlow()
+    init {
+        viewModelScope.launch {
+            sendEvent(
+                DetailsReducer.DetailsViewEvent.ShowPoster(
+                    show = true
+                )
+            )
+            sendEvent(
+                DetailsReducer.DetailsViewEvent.ShowButtons(
+                    show = true
+                )
+            )
+            sendEvent(
+                DetailsReducer.DetailsViewEvent.ShowInfos(
+                    infosMovie = true
+                )
+            )
+            sendEvent(
+                DetailsReducer.DetailsViewEvent.ShowOverview(
+                    overview = true
+                )
+            )
+        }
+    }
 
     fun getMovieById(movieId: Int) {
         viewModelScope.launch {
-            try {
-                val theMovie = repository.findMovieById(movieId = movieId)
-                _movieDetails.value = theMovie
-            } catch (e: IOException) {
-                Log.e("MovieId", e.stackTraceToString())
-                _movieDetails.value = null
-            }
+            sendEvent(
+                DetailsReducer.DetailsViewEvent.ShowMovie(
+                    movie = repository.findMovieById(movieId = movieId)
+                )
+            )
         }
     }
 
     fun getActorsByMovieId(movieId: Int) {
         viewModelScope.launch {
-            try {
-                val actors = repository.getActorsOfMovie(movieId = movieId)
-                _movieCredits.value = actors.cast
-            } catch (e: IOException) {
-                Log.e("MovieId", e.stackTraceToString())
-                _movieCredits.value = emptyList()
-            }
+            sendEvent(
+                DetailsReducer.DetailsViewEvent.ShowActors(
+                    show = true,
+                    actors = repository.getActorsOfMovie(movieId = movieId).cast
+                )
+            )
         }
     }
 }
