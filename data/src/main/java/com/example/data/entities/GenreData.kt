@@ -1,6 +1,6 @@
 package com.example.data.entities
 
-import com.example.domain.Genre
+import com.example.domain.model.Genre
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)

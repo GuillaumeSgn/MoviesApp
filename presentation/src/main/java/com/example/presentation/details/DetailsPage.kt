@@ -26,17 +26,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
+import com.example.domain.model.Casting
+import com.example.domain.model.MovieDetails
 import com.example.presentation.R
 import com.example.presentation.theme.ProjetFilmsTheme
 
 @Composable
 fun DetailsPage(backTo: () -> Unit, id: Int, viewModel: DetailsViewModel) {
-    viewModel.let { detailsViewModel ->
-        detailsViewModel.getActorsByMovieId(id)
-        detailsViewModel.getMovieById(id)
-        val state by viewModel.state.collectAsState()
+    viewModel.apply {
+        getActorsByMovieId(id)
+        getMovieById(id)
+        val state by state.collectAsState()
 
-        val effect = viewModel.effect
+        val effect = effect
         LaunchedEffect(effect) {
             effect.collect { action ->
                 when (action) {
@@ -50,8 +52,14 @@ fun DetailsPage(backTo: () -> Unit, id: Int, viewModel: DetailsViewModel) {
 
         DetailsPageContent(
             backTo = backTo,
-            state = state,
-            painter = painter
+            movieDetails = state.movie,
+            painter = painter,
+            poster = state.poster,
+            infosMovie = state.infosMovie,
+            buttons = state.buttons,
+            overview = state.overview,
+            showActors = state.showActors,
+            actors = state.actors
         )
     }
 }
@@ -60,11 +68,17 @@ fun DetailsPage(backTo: () -> Unit, id: Int, viewModel: DetailsViewModel) {
 @Suppress("MagicNumber")
 private fun DetailsPageContent(
     backTo: () -> Unit,
-    state: DetailsReducer.DetailsViewState,
+    movieDetails: MovieDetails?,
+    poster: Boolean,
+    infosMovie: Boolean,
+    buttons: Boolean,
+    overview: Boolean,
+    showActors: Boolean,
+    actors: List<Casting>,
     painter: AsyncImagePainter
 ) {
-    state.movie?.let {
-        val lesGenres = it.genres.joinToString(separator = ", ") { genre -> genre.name }
+    movieDetails?.apply {
+        val lesGenres = genres.joinToString(separator = ", ") { genre -> genre.name }
         Column(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,
@@ -74,7 +88,7 @@ private fun DetailsPageContent(
             IconButton(onClick = backTo) {
                 Icon(imageVector = Icons.Outlined.ArrowBack, "Back")
             }
-            if (state.poster) {
+            if (poster) {
                 Image(
                     painter = painter,
                     contentDescription = null,
@@ -87,22 +101,22 @@ private fun DetailsPageContent(
             }
             Column(modifier = Modifier.absolutePadding(left = 24.dp)) {
                 Spacer(Modifier.size(24.dp))
-                if (state.infosMovie) {
-                    InfosMovie(movie = it, genres = lesGenres)
+                if (infosMovie) {
+                    InfosMovie(movie = this@apply, genres = lesGenres)
                 }
                 Spacer(Modifier.size(24.dp))
-                if (state.buttons) {
+                if (buttons) {
                     Buttons()
                 }
                 Spacer(Modifier.size(24.dp))
-                if (state.overview) {
-                    Overview(movie = it)
+                if (overview) {
+                    Overview(movie = this@apply)
                 }
             }
             Spacer(Modifier.size(24.dp))
-            if (state.showActors) {
+            if (showActors) {
                 LineOfActor(
-                    actors = state.actors,
+                    actors = actors,
                     title = stringResource(id = R.string.line_actors_title)
                 )
             }
@@ -117,16 +131,13 @@ private fun PreviewDetails() {
     ProjetFilmsTheme {
         DetailsPageContent(
             backTo = { },
-            state = DetailsReducer.DetailsViewState(
-                true,
-                true,
-                true,
-                true,
-                true,
-                emptyList(),
-                true,
-                null
-            ),
+            movieDetails = MovieDetails("truc", "truc", "truc", "truc", emptyList()),
+            poster = true,
+            infosMovie = true,
+            buttons = true,
+            overview = true,
+            actors = emptyList(),
+            showActors = true,
             painter = rememberAsyncImagePainter(model = "https://image.tmdb.org/t/p/w1280/1")
         )
     }

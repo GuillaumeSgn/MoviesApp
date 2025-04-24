@@ -1,7 +1,7 @@
 package com.example.presentation.details
 
-import com.example.domain.Casting
-import com.example.domain.MovieDetails
+import com.example.domain.model.Casting
+import com.example.domain.model.MovieDetails
 import com.example.presentation.base.Reducer
 import javax.annotation.concurrent.Immutable
 
@@ -16,7 +16,7 @@ class DetailsReducer :
         data class ShowButtons(val show: Boolean) : DetailsViewEvent()
         data class ShowOverview(val overview: Boolean) : DetailsViewEvent()
         data class ShowActors(val show: Boolean, val actors: List<Casting>) : DetailsViewEvent()
-        data class ShowMovie(val movie: MovieDetails) : DetailsViewEvent()
+        data class ShowMovie(val movie: MovieDetails?) : DetailsViewEvent()
     }
 
     @Immutable

@@ -1,9 +1,9 @@
 package com.example.domain.repository
 
-import com.example.domain.MovieCredits
-import com.example.domain.MovieDetails
-import com.example.domain.MovieGenre
-import com.example.domain.Results
+import com.example.domain.model.MovieCredits
+import com.example.domain.model.MovieDetails
+import com.example.domain.model.MovieGenre
+import com.example.domain.model.Results
 
 interface MovieRepository {
     suspend fun getListPopular(): Results

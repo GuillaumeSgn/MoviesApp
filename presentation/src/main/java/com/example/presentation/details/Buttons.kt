@@ -66,7 +66,8 @@ fun CustomButton(imageVector: ImageVector, color: Color, text: String) {
                 width = 1.dp,
                 color = color,
                 shape = RoundedCornerShape(size = 8.dp)
-            )
+            ),
+        shape = RoundedCornerShape(size = 8.dp)
     ) {
         Icon(
             imageVector = imageVector,

@@ -4,8 +4,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.domain.Genre
-import com.example.domain.MovieDetails
+import com.example.domain.model.Genre
+import com.example.domain.model.MovieDetails
 import com.example.presentation.theme.ProjetFilmsTheme
 
 @Composable

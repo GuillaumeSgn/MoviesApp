@@ -3,23 +3,26 @@ package com.example.presentation.home
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.presentation.R
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.domain.listmovies.MovieListType
+import com.example.domain.model.Genre
+import com.example.domain.model.Movies
 import com.example.presentation.theme.ProjetFilmsTheme
 
 @Composable
-fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel?) {
-    viewModel?.let {
-        val state by viewModel.state.collectAsState()
+fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel) {
+    viewModel.apply {
+        val state by state.collectAsState()
 
-        val effect = viewModel.effect
+        val effect = effect
         LaunchedEffect(effect) {
             effect.collect { action ->
                 when (action) {
@@ -27,53 +30,37 @@ fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel?) {
                 }
             }
         }
+        ListMoviesContent(
+            toDetails = viewModel::goToDetails,
+            allMovies = state.allMovies,
+            genres = state.genres.orEmpty()
+        )
+    }
+}
 
-        LazyColumn(
-            modifier = Modifier
-                .padding(vertical = 24.dp, horizontal = 17.dp),
-            verticalArrangement = Arrangement.spacedBy(40.dp)
-        ) {
-            if (!state.popularMovies.isNullOrEmpty()) {
-                item {
-                    LineOfMovies(
-                        movies = state.popularMovies.orEmpty(),
-                        func = it::goToDetails,
-                        title = stringResource(id = R.string.line_movies_title_popular),
-                        lesgenres = state.genres.orEmpty()
-                    )
-                }
-            }
-            if (!state.upcomingMovies.isNullOrEmpty()) {
-                item {
-                    LineOfMovies(
-                        movies = state.upcomingMovies.orEmpty(),
-                        func = it::goToDetails,
-                        title = stringResource(id = R.string.line_movies_title_upcoming),
-                        lesgenres = state.genres.orEmpty()
-                    )
-                }
-            }
-            if (!state.topRatingMovies.isNullOrEmpty()) {
-                item {
-                    LineOfMovies(
-                        movies = state.topRatingMovies.orEmpty(),
-                        func = it::goToDetails,
-                        title = stringResource(id = R.string.line_movies_title_topRated),
-                        lesgenres = state.genres.orEmpty()
-                    )
-                }
-            }
-            if (!state.playingMovies.isNullOrEmpty()) {
-                item {
-                    LineOfMovies(
-                        movies = state.playingMovies.orEmpty(),
-                        func = it::goToDetails,
-                        title = stringResource(id = R.string.line_movies_title_nowPlaying),
-                        lesgenres = state.genres.orEmpty()
-                    )
-                }
+
+@Composable
+fun ListMoviesContent(
+    toDetails: (Int) -> Unit,
+    allMovies: Map<MovieListType, List<Movies>>,
+    genres: List<Genre>
+) {
+    LazyColumn(
+        modifier = Modifier
+            .padding(vertical = 24.dp, horizontal = 17.dp),
+        verticalArrangement = Arrangement.spacedBy(40.dp)
+    ) {
+        items(items = allMovies.entries.toList()) { (title, movies) ->
+            if (movies.isNotEmpty()) {
+                LineOfMovies(
+                    movies = movies,
+                    func = toDetails,
+                    title = title,
+                    lesgenres = genres
+                )
             }
         }
+
     }
 }
 
@@ -81,6 +68,10 @@ fun ListMovies(toDetails: (Int) -> Unit, viewModel: ListViewModel?) {
 @Composable
 private fun PreviewList() {
     ProjetFilmsTheme {
-        ListMovies(toDetails = {}, viewModel = null)
+        ListMoviesContent(
+            toDetails = {},
+            allMovies = emptyMap(),
+            genres = emptyList()
+        )
     }
 }

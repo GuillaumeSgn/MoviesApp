@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.projetfilms"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.projetfilms"
@@ -69,6 +69,8 @@ dependencies {
     implementation(project(":data-mock"))
 
     implementation(libs.hilt.android)
+    implementation(platform(libs.androidx.compose.bom))
+
 
     kapt(libs.hilt.compiler)
 
@@ -80,4 +82,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+kapt {
+    correctErrorTypes = true
 }

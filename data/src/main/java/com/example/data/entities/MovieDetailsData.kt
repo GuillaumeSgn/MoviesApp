@@ -1,6 +1,6 @@
 package com.example.data.entities
 
-import com.example.domain.MovieDetails
+import com.example.domain.model.MovieDetails
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
